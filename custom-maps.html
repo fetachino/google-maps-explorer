@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Maps - Google Maps Explorer</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">Google Maps Explorer</span>
+                </a>
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="custom-maps.html" class="active">Custom Maps</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger-menu">
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
+                <div class="mobile-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="custom-maps.html" class="active">Custom Maps</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="custom-maps-intro">
+            <div class="container">
+                <h1>Create Custom Maps</h1>
+                <p>Share your favorite locations and create personalized maps with Google Maps.</p>
+            </div>
+        </section>
+
+        <section class="map-form">
+            <div class="container">
+                <h2>Submit Your Location</h2>
+                <form id="location-form">
+                    <div class="form-group">
+                        <label for="location-name">Location Name:</label>
+                        <input type="text" id="location-name" name="location-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="coordinates">Coordinates (Latitude, Longitude):</label>
+                        <input type="text" id="coordinates" name="coordinates" placeholder="e.g., 40.7128, -74.0060">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description" rows="4"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="category">Category:</label>
+                        <select id="category" name="category">
+                            <option value="landmark">Landmark</option>
+                            <option value="restaurant">Restaurant</option>
+                            <option value="park">Park/Nature</option>
+                            <option value="store">Store/Business</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="updates" name="updates">
+                        <label for="updates">Receive updates about this location</label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Submit Location</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="map-gallery">
+            <div class="container">
+                <h2>Example Custom Maps</h2>
+                <div class="gallery-container">
+                    <div class="gallery-item">
+                        <h3>Best Hiking Trails</h3>
+                        <p>A collection of scenic hiking trails with difficulty ratings and views.</p>
+                    </div>
+                    <div class="gallery-item">
+                        <h3>Food Tour NYC</h3>
+                        <p>The ultimate food tour through New York City's diverse neighborhoods.</p>
+                    </div>
+                    <div class="gallery-item">
+                        <h3>Historic Landmarks</h3>
+                        <p>Explore historical sites and monuments with historical context.</p>
+                    </div>
+                    <div class="gallery-item">
+                        <h3>Coffee Shop Tour</h3>
+                        <p>Find the best local coffee shops in your area with ratings and specialties.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Google Maps Explorer | Educational Project</p>
+            <div class="contact">
+                <p>Contact: info@example.com</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
