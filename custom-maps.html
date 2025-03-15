@@ -103,6 +103,28 @@
             text-decoration: none;
             margin-top: 10px;
         }
+        #my-locations {
+            margin-top: 30px;
+        }
+        .saved-location {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .saved-location h3 {
+            color: #4285F4;
+            margin-top: 0;
+        }
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: none;
+        }
         footer {
             background-color: #212121;
             color: white;
@@ -141,7 +163,11 @@
             </iframe>
         </div>
         
-        <form>
+        <div id="success-message" class="success-message">
+            Location saved successfully!
+        </div>
+        
+        <form id="location-form">
             <div class="form-group">
                 <label for="location-name">Location Name:</label>
                 <input type="text" id="location-name" name="location-name" placeholder="e.g., Eiffel Tower" required>
@@ -160,16 +186,22 @@
             <div class="form-group">
                 <label for="category">Category:</label>
                 <select id="category" name="category">
-                    <option value="landmark">Landmark</option>
-                    <option value="restaurant">Restaurant</option>
-                    <option value="park">Park/Nature</option>
-                    <option value="store">Store/Business</option>
-                    <option value="other">Other</option>
+                    <option value="Landmark">Landmark</option>
+                    <option value="Restaurant">Restaurant</option>
+                    <option value="Park">Park/Nature</option>
+                    <option value="Store">Store/Business</option>
+                    <option value="Other">Other</option>
                 </select>
             </div>
             
-            <button type="button" onclick="alert('In a real application, this would save your custom location to a map!')">Add to My Map</button>
+            <button type="button" id="add-location-btn">Add to My Map</button>
         </form>
+        
+        <div id="my-locations">
+            <h2>My Saved Locations</h2>
+            <p id="no-locations">You haven't saved any locations yet.</p>
+            <div id="saved-locations-container"></div>
+        </div>
         
         <h2>Example Custom Maps</h2>
         <p>Check out these sample custom maps created by other users:</p>
@@ -205,5 +237,103 @@
         <p>&copy; 2025 Google Maps Explorer | Educational Project</p>
         <p>Contact: info@example.com</p>
     </footer>
+
+    <script>
+        // Get elements
+        const locationForm = document.getElementById('location-form');
+        const addLocationBtn = document.getElementById('add-location-btn');
+        const successMessage = document.getElementById('success-message');
+        const noLocationsMsg = document.getElementById('no-locations');
+        const savedLocationsContainer = document.getElementById('saved-locations-container');
+        
+        // Load saved locations from localStorage
+        let savedLocations = JSON.parse(localStorage.getItem('savedLocations')) || [];
+        
+        // Display saved locations
+        function displaySavedLocations() {
+            if (savedLocations.length === 0) {
+                noLocationsMsg.style.display = 'block';
+                savedLocationsContainer.innerHTML = '';
+                return;
+            }
+            
+            noLocationsMsg.style.display = 'none';
+            savedLocationsContainer.innerHTML = '';
+            
+            savedLocations.forEach((location, index) => {
+                const locationElement = document.createElement('div');
+                locationElement.className = 'saved-location';
+                locationElement.innerHTML = `
+                    <h3>${location.name}</h3>
+                    <p><strong>Category:</strong> ${location.category}</p>
+                    <p><strong>Coordinates:</strong> ${location.coordinates}</p>
+                    <p>${location.description}</p>
+                    <button onclick="removeLocation(${index})">Remove</button>
+                    <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location.coordinates)}" target="_blank" style="margin-left: 10px;">View on Google Maps</a>
+                `;
+                savedLocationsContainer.appendChild(locationElement);
+            });
+        }
+        
+        // Add location to saved locations
+        function addLocation() {
+            const name = document.getElementById('location-name').value;
+            const coordinates = document.getElementById('coordinates').value;
+            const description = document.getElementById('description').value;
+            const category = document.getElementById('category').value;
+            
+            if (!name) {
+                alert('Please enter a location name');
+                return;
+            }
+            
+            const newLocation = {
+                name,
+                coordinates: coordinates || 'Not specified',
+                description: description || 'No description provided',
+                category
+            };
+            
+            savedLocations.push(newLocation);
+            localStorage.setItem('savedLocations', JSON.stringify(savedLocations));
+            
+            // Show success message
+            successMessage.style.display = 'block';
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 3000);
+            
+            // Clear form
+            locationForm.reset();
+            
+            // Update display
+            displaySavedLocations();
+            
+            // Update map if coordinates provided
+            if (coordinates) {
+                updateMapWithLocation(coordinates);
+            }
+        }
+        
+        // Remove location from saved locations
+        window.removeLocation = function(index) {
+            savedLocations.splice(index, 1);
+            localStorage.setItem('savedLocations', JSON.stringify(savedLocations));
+            displaySavedLocations();
+        };
+        
+        // Update map with location
+        function updateMapWithLocation(coordinates) {
+            const mapContainer = document.querySelector('.map-container');
+            const iframe = mapContainer.querySelector('iframe');
+            iframe.src = `https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=${coordinates}`;
+        }
+        
+        // Event listeners
+        addLocationBtn.addEventListener('click', addLocation);
+        
+        // Initialize
+        displaySavedLocations();
+    </script>
 </body>
 </html>
