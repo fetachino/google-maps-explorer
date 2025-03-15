@@ -4,122 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Maps - Google Maps Explorer</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #4285F4;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        form {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"], 
+        textarea, 
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4285F4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #212121;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+    <link rel="icon" href="images/favicon.ico">
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="logo">
-                <a href="index.html">
-                    <span class="logo-text">Google Maps Explorer</span>
-                </a>
-            </div>
-            <nav class="desktop-nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="features.html">Features</a></li>
-                    <li><a href="custom-maps.html" class="active">Custom Maps</a></li>
-                </ul>
-            </nav>
-            <div class="hamburger-menu">
-                <input type="checkbox" id="menu-toggle">
-                <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
-                <div class="mobile-nav">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="features.html">Features</a></li>
-                        <li><a href="custom-maps.html" class="active">Custom Maps</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <h1>Google Maps Explorer</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="custom-maps.html">Custom Maps</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <section class="custom-maps-intro">
-            <div class="container">
-                <h1>Create Custom Maps</h1>
-                <p>Share your favorite locations and create personalized maps with Google Maps.</p>
+        <h2>Create Custom Maps</h2>
+        <p>Share your favorite locations and create personalized maps with Google Maps.</p>
+        
+        <form>
+            <div class="form-group">
+                <label for="location-name">Location Name:</label>
+                <input type="text" id="location-name" name="location-name" required>
             </div>
-        </section>
-
-        <section class="map-form">
-            <div class="container">
-                <h2>Submit Your Location</h2>
-                <form id="location-form">
-                    <div class="form-group">
-                        <label for="location-name">Location Name:</label>
-                        <input type="text" id="location-name" name="location-name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="coordinates">Coordinates (Latitude, Longitude):</label>
-                        <input type="text" id="coordinates" name="coordinates" placeholder="e.g., 40.7128, -74.0060">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="description">Description:</label>
-                        <textarea id="description" name="description" rows="4"></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="category">Category:</label>
-                        <select id="category" name="category">
-                            <option value="landmark">Landmark</option>
-                            <option value="restaurant">Restaurant</option>
-                            <option value="park">Park/Nature</option>
-                            <option value="store">Store/Business</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group checkbox-group">
-                        <input type="checkbox" id="updates" name="updates">
-                        <label for="updates">Receive updates about this location</label>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">Submit Location</button>
-                </form>
+            
+            <div class="form-group">
+                <label for="coordinates">Coordinates (Latitude, Longitude):</label>
+                <input type="text" id="coordinates" name="coordinates" placeholder="e.g., 40.7128, -74.0060">
             </div>
-        </section>
-
-        <section class="map-gallery">
-            <div class="container">
-                <h2>Example Custom Maps</h2>
-                <div class="gallery-container">
-                    <div class="gallery-item">
-                        <h3>Best Hiking Trails</h3>
-                        <p>A collection of scenic hiking trails with difficulty ratings and views.</p>
-                    </div>
-                    <div class="gallery-item">
-                        <h3>Food Tour NYC</h3>
-                        <p>The ultimate food tour through New York City's diverse neighborhoods.</p>
-                    </div>
-                    <div class="gallery-item">
-                        <h3>Historic Landmarks</h3>
-                        <p>Explore historical sites and monuments with historical context.</p>
-                    </div>
-                    <div class="gallery-item">
-                        <h3>Coffee Shop Tour</h3>
-                        <p>Find the best local coffee shops in your area with ratings and specialties.</p>
-                    </div>
-                </div>
+            
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4"></textarea>
             </div>
-        </section>
+            
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <select id="category" name="category">
+                    <option value="landmark">Landmark</option>
+                    <option value="restaurant">Restaurant</option>
+                    <option value="park">Park/Nature</option>
+                    <option value="store">Store/Business</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            
+            <button type="submit">Submit Location</button>
+        </form>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2025 Google Maps Explorer | Educational Project</p>
-            <div class="contact">
-                <p>Contact: info@example.com</p>
-            </div>
-        </div>
+        <p>&copy; 2025 Google Maps Explorer | Educational Project</p>
+        <p>Contact: info@example.com</p>
     </footer>
 </body>
 </html>

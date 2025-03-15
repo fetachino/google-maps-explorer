@@ -4,155 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Features - Google Maps Explorer</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #4285F4;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .feature-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .feature-card h3 {
+            color: #4285F4;
+        }
+        footer {
+            background-color: #212121;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+    <link rel="icon" href="images/favicon.ico">
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="logo">
-                <a href="index.html">
-                    <span class="logo-text">Google Maps Explorer</span>
-                </a>
-            </div>
-            <nav class="desktop-nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="features.html" class="active">Features</a></li>
-                    <li><a href="custom-maps.html">Custom Maps</a></li>
-                </ul>
-            </nav>
-            <div class="hamburger-menu">
-                <input type="checkbox" id="menu-toggle">
-                <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
-                <div class="mobile-nav">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="features.html" class="active">Features</a></li>
-                        <li><a href="custom-maps.html">Custom Maps</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <h1>Google Maps Explorer</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="custom-maps.html">Custom Maps</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <section class="features-intro">
-            <div class="container">
-                <h1>Google Maps Features</h1>
-                <p>Discover the powerful features that make Google Maps an essential tool for navigation and exploration.</p>
-            </div>
-        </section>
-
-        <section class="view-modes">
-            <div class="container">
-                <h2>View Modes</h2>
-                <p>Google Maps offers various ways to visualize locations:</p>
-            </div>
-        </section>
-
-        <section class="feature-cards">
-            <div class="container">
-                <div class="card-container">
-                    <!-- Street View Card -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <i class="fas fa-street-view"></i>
-                                <h3>Street View</h3>
-                            </div>
-                            <div class="flip-card-back">
-                                <h3>Street View</h3>
-                                <p>Experience 360° views of streets around the world. Explore landmarks, natural wonders, and city streets as if you were there.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Satellite Card -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <i class="fas fa-satellite"></i>
-                                <h3>Satellite View</h3>
-                            </div>
-                            <div class="flip-card-back">
-                                <h3>Satellite View</h3>
-                                <p>See high-resolution aerial imagery of locations around the globe. Examine terrain features and urban layouts from above.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Directions Card -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <i class="fas fa-directions"></i>
-                                <h3>Directions</h3>
-                            </div>
-                            <div class="flip-card-back">
-                                <h3>Directions</h3>
-                                <p>Get turn-by-turn navigation for driving, walking, cycling, or public transit. Find the fastest routes with real-time traffic information.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Transit Card -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <i class="fas fa-bus"></i>
-                                <h3>Transit</h3>
-                            </div>
-                            <div class="flip-card-back">
-                                <h3>Transit</h3>
-                                <p>Access comprehensive public transportation information. View schedules, routes, and estimated travel times for buses, trains, and more.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Places Card -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <h3>Places</h3>
-                            </div>
-                            <div class="flip-card-back">
-                                <h3>Places</h3>
-                                <p>Discover nearby restaurants, shops, attractions, and services. Read reviews, see photos, and get essential information.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Timeline Card -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <i class="fas fa-history"></i>
-                                <h3>Timeline</h3>
-                            </div>
-                            <div class="flip-card-back">
-                                <h3>Timeline</h3>
-                                <p>View your location history and trips. See where you've been and when, useful for recalling places you've visited.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <h2>Google Maps Features</h2>
+        <p>Discover the powerful features that make Google Maps an essential tool for navigation and exploration.</p>
+        
+        <div class="feature-card">
+            <h3>Street View</h3>
+            <p>Experience 360° views of streets around the world. Explore landmarks, natural wonders, and city streets as if you were there.</p>
+        </div>
+        
+        <div class="feature-card">
+            <h3>Satellite View</h3>
+            <p>See high-resolution aerial imagery of locations around the globe. Examine terrain features and urban layouts from above.</p>
+        </div>
+        
+        <div class="feature-card">
+            <h3>Directions</h3>
+            <p>Get turn-by-turn navigation for driving, walking, cycling, or public transit. Find the fastest routes with real-time traffic information.</p>
+        </div>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2025 Google Maps Explorer | Educational Project</p>
-            <div class="contact">
-                <p>Contact: info@example.com</p>
-            </div>
-        </div>
+        <p>&copy; 2025 Google Maps Explorer | Educational Project</p>
+        <p>Contact: info@example.com</p>
     </footer>
 </body>
 </html>
