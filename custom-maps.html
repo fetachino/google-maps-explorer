@@ -67,6 +67,42 @@
             border-radius: 4px;
             cursor: pointer;
         }
+        .map-container {
+            height: 400px;
+            width: 100%;
+            background-color: #e5e3df;
+            border-radius: 8px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .sample-maps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .sample-map {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 15px;
+            flex: 1 1 calc(50% - 20px);
+            min-width: 250px;
+        }
+        .sample-map h3 {
+            color: #4285F4;
+            margin-top: 0;
+        }
+        .sample-map a {
+            display: inline-block;
+            background-color: #4285F4;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
         footer {
             background-color: #212121;
             color: white;
@@ -93,20 +129,32 @@
         <h2>Create Custom Maps</h2>
         <p>Share your favorite locations and create personalized maps with Google Maps.</p>
         
+        <!-- Map Preview Section -->
+        <div class="map-container">
+            <iframe 
+                width="100%" 
+                height="100%" 
+                frameborder="0" 
+                style="border:0" 
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower,Paris+France" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        
         <form>
             <div class="form-group">
                 <label for="location-name">Location Name:</label>
-                <input type="text" id="location-name" name="location-name" required>
+                <input type="text" id="location-name" name="location-name" placeholder="e.g., Eiffel Tower" required>
             </div>
             
             <div class="form-group">
                 <label for="coordinates">Coordinates (Latitude, Longitude):</label>
-                <input type="text" id="coordinates" name="coordinates" placeholder="e.g., 40.7128, -74.0060">
+                <input type="text" id="coordinates" name="coordinates" placeholder="e.g., 48.8584, 2.2945">
             </div>
             
             <div class="form-group">
                 <label for="description">Description:</label>
-                <textarea id="description" name="description" rows="4"></textarea>
+                <textarea id="description" name="description" rows="4" placeholder="Describe this location..."></textarea>
             </div>
             
             <div class="form-group">
@@ -120,8 +168,37 @@
                 </select>
             </div>
             
-            <button type="submit">Submit Location</button>
+            <button type="button" onclick="alert('In a real application, this would save your custom location to a map!')">Add to My Map</button>
         </form>
+        
+        <h2>Example Custom Maps</h2>
+        <p>Check out these sample custom maps created by other users:</p>
+        
+        <div class="sample-maps">
+            <div class="sample-map">
+                <h3>Best Hiking Trails</h3>
+                <p>A collection of scenic hiking trails with difficulty ratings and views.</p>
+                <a href="https://www.google.com/maps/d/viewer?mid=1Z1dI8hoBZSJNWFx2xr_MMxSxSxY&hl=en" target="_blank">View Map</a>
+            </div>
+            
+            <div class="sample-map">
+                <h3>Food Tour NYC</h3>
+                <p>The ultimate food tour through New York City's diverse neighborhoods.</p>
+                <a href="https://www.google.com/maps/d/viewer?mid=1MYPgJWpLH0V8BI8Jq7GQUEgHLh8&hl=en" target="_blank">View Map</a>
+            </div>
+            
+            <div class="sample-map">
+                <h3>Historic Landmarks</h3>
+                <p>Explore historical sites and monuments with historical context.</p>
+                <a href="https://www.google.com/maps/d/viewer?mid=1lK3mKQMO6Qx5wlVV5T0xA5Z-bCg&hl=en" target="_blank">View Map</a>
+            </div>
+            
+            <div class="sample-map">
+                <h3>Coffee Shop Tour</h3>
+                <p>Find the best local coffee shops in your area with ratings and specialties.</p>
+                <a href="https://www.google.com/maps/d/viewer?mid=1QdxO-yJMUIrr6QfEUvHU0akhlWk&hl=en" target="_blank">View Map</a>
+            </div>
+        </div>
     </main>
 
     <footer>
